@@ -1,6 +1,7 @@
 from torch.utils.data import Dataset
 import pandas as pd
 import numpy as np
+import torch
 
 class SugarsDataset(Dataset):
     def __init__(self, dataset_path: str = "datasets/synthetic_data.csv"):
@@ -17,14 +18,18 @@ class SugarsDataset(Dataset):
         dataframe['sugar_4'] = sugar_4_norm
         dataframe['hours'] = hours_norm
         self.dataframe_norm = dataframe
-        print(dataframe.head())
 
     def __getitem__(self, index: int):
         inputs = self.dataframe_norm.iloc[index][['sugar_1', 'sugar_2', 'sugar_3', 'sugar_4', 'hours']].values
         label = self.dataframe_norm.iloc[index]['label']
         inputs = inputs.astype(np.float32)
-        label = label.astype(np.int8)
-        return inputs, label
+        label = label.astype(np.long)
+        label_onehot = np.zeros(shape=[2], dtype=np.int8)
+        label_onehot[label] = 1
+        inputs_tensor = torch.tensor(inputs, dtype=torch.float32)
+        label_onehot = torch.tensor(label_onehot, dtype=torch.float32)
+
+        return inputs_tensor, 1 - torch.tensor(label, dtype=torch.long)
     
     def __len__(self):
         return self.dataframe_norm.shape[0]
