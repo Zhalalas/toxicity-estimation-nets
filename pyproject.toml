@@ -1,0 +1,26 @@
+[project]
+name = "sugar-nets"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "autopep8>=2.3.2",
+    "cprint>=1.2.2",
+    "numpy>=2.4.2",
+    "pandas>=3.0.0",
+    "torch>=2.10.0",
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cpu" },
+]
+torchvision = [
+    { index = "pytorch-cpu" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
