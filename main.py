@@ -11,12 +11,12 @@ def one_step_forward_backward():
     input_0, output_0 = dataset[15]
 
     model = FirstNetwork()
-    optimizer = AdamW(params=FirstNetwork().parameters(), lr=0.001)
+    optimizer = AdamW(params=model.parameters(), lr=0.001)
     loss_func = CrossEntropyLoss()
 
     prediction_0 = model.forward(input_0)
 
-    loss = loss_func(output_0, prediction_0)
+    loss = loss_func(prediction_0, output_0.unsqueeze(0))
 
     loss.backward()
     optimizer.step()
@@ -26,7 +26,7 @@ def train_first_network():
     dataloader = DataLoader(dataset, batch_size=128, shuffle=True)
 
     model = FirstNetwork()
-    optimizer = AdamW(params=FirstNetwork().parameters(), lr=0.001)
+    optimizer = AdamW(params=model.parameters(), lr=0.001)
     loss_func = CrossEntropyLoss()
 
     epoch = 10
@@ -49,11 +49,6 @@ def train_first_network():
 
 
     torch.save(model.state_dict(), "weights/first_network.pth")
-
-
-
-
-
 
 if __name__ == "__main__":
     train_first_network()
