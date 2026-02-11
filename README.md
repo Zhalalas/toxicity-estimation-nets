@@ -1,8 +1,20 @@
+Perfect 😄 — I’ll format this properly in clean GitHub Markdown so:
+
+Titles are large
+
+Sections are clearly separated
+
+Bullet points are neat
+
+Emojis stay professional (not too playful)
+
+You can paste this directly into your README.md.
+
 🍬 Sugar Toxicity Classification Model
 
 This project trains a neural network to decide whether a mixture of sugar concentrations and exposure time becomes toxic or remains safe.
 
-It’s built with PyTorch and uses synthetic data to simulate different scenarios, making it ideal for experimentation, learning, and prototyping.
+It is built with PyTorch and uses synthetic data to simulate different scenarios, making it ideal for experimentation, learning, and prototyping.
 
 🧠 What This Project Does
 
@@ -24,7 +36,7 @@ The focus is on building a clean, modular machine learning pipeline rather than 
 
 All data is artificially generated to cover a wide range of scenarios.
 
-Input Features
+📥 Input Features
 
 sugar_1
 
@@ -36,9 +48,10 @@ sugar_4
 
 hours
 
-Toxicity Logic
+⚙️ Toxicity Logic
 
 A continuous toxicity score is calculated using a weighted combination of the sugar values and exposure time.
+
 This score is normalized and converted into a binary label:
 
 Toxic if the score is greater than 0.65
@@ -59,13 +72,13 @@ Returns tensors ready for training
 
 Provides integer class labels for classification
 
-This keeps preprocessing clean and reusable.
+This keeps preprocessing clean, modular, and reusable.
 
 🧱 Model Architecture
 
 The classifier is a fully connected neural network.
 
-Structure Overview
+🔍 Structure Overview
 
 Input layer with 5 features
 
@@ -81,7 +94,7 @@ The training pipeline includes:
 
 Dataset split into training, validation, and test sets
 
-Batch-based training with PyTorch data loaders
+Batch-based training using PyTorch data loaders
 
 AdamW optimizer
 
@@ -113,6 +126,6 @@ Practicing dataset and model design
 
 Experimenting with classification problems
 
-Building an end-to-end ML workflow
+Building a complete end-to-end ML workflow
 
 It uses synthetic data and should not be treated as a real toxicity prediction system.
