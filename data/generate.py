@@ -17,7 +17,7 @@ parser.add_argument('--sugar_4_min', type=float, default=0, help='Minimum value 
 parser.add_argument('--sugar_4_max', type=float, default=5, help='Maximum value for sugar_4')
 parser.add_argument('--hours_min', type=int, default=0, help='Minimum hours value')
 parser.add_argument('--hours_max', type=int, default=336, help='Maximum hours value')
-parser.add_argument('--num_entries', type=int, default=2000, help='Number of entries to generate')
+parser.add_argument('--num_entries', type=int, default=500000, help='Number of entries to generate')
 parser.add_argument('--output_file', type=str, default='datasets/synthetic_data.csv', help='Output file path')
 
 args = parser.parse_args()
